@@ -31,7 +31,7 @@
       LoadOnAutoCADStartup="True">
 
       <Commands GroupName="MaskMText_Commands">
-        <Command Global="BB" Local="BB" />
+        <Command Global="BBMASK" Local="BBMASK" />
       </Commands>
     </ComponentEntry>
   </Components>

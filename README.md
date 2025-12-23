@@ -1,4 +1,4 @@
-# BB - MaskMText for Civil 3D
+# BBMASK - MaskMText for Civil 3D
 
 A Civil 3D plugin that efficiently manages text masking for MText and MultiLeader objects.
 
@@ -18,9 +18,9 @@ A Civil 3D plugin that efficiently manages text masking for MText and MultiLeade
 
 ## Usage
 
-### Command: `BB`
+### Command: `BBMASK`
 
-When you run `BB`, you'll be prompted with options:
+When you run `BBMASK`, you'll be prompted with options:
 
 #### Option 1: Mask (Default)
 1. Select "Mask" or press Enter

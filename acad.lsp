@@ -3,6 +3,6 @@
 
 (defun s::startup ()
   (command "._NETLOAD" "\\\\YourServer\\Civil3D\\Plugins\\MaskMText\\MaskMText.dll")
-  (princ "\nMaskMText plugin loaded - Type BB to run.")
+  (princ "\nMaskMText plugin loaded - Type BBMASK to run.")
   (princ)
 )

@@ -11,7 +11,7 @@ namespace MaskMText
 {
     public class Commands
     {
-        [CommandMethod("BB")]
+        [CommandMethod("BBMASK")]
         public void MaskTextCommand()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
