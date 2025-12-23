@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage
+    SchemaVersion="1.0"
+    AutodeskProduct="AutoCAD"
+    ProductType="Application"
+    Name="MaskMText"
+    Description="Text masking utility for MText and MultiLeader objects in Civil 3D"
+    AppVersion="1.0.0"
+    Author="Xuan27"
+    HelpFile="./README.md"
+    ProductCode="{A5B8E8F0-1234-4567-89AB-CDEF01234567}"
+    UpgradeCode="{B6C9F9E1-2345-5678-9ABC-DEF012345678}">
+
+  <CompanyDetails
+    Name="Custom Development"
+    Url="https://github.com/Xuan27/maskmtext" />
+
+  <Components Description="Main Application">
+    <RuntimeRequirements
+      OS="Win64"
+      Platform="AutoCAD"
+      SeriesMin="R24.2"
+      SeriesMax="R24.2" />
+
+    <ComponentEntry
+      AppName="MaskMText"
+      Version="1.0.0"
+      ModuleName="./Contents/Windows/2023/MaskMText.dll"
+      AppDescription="BB Command for Text Masking"
+      LoadOnCommandInvocation="True"
+      LoadOnAutoCADStartup="True">
+
+      <Commands GroupName="MaskMText_Commands">
+        <Command Global="BB" Local="BB" />
+      </Commands>
+    </ComponentEntry>
+  </Components>
+</ApplicationPackage>
