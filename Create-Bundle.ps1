@@ -17,13 +17,30 @@ $windowsPath = Join-Path $contentsPath "Windows\2023"
 Write-Host "Creating bundle directory structure..."
 New-Item -ItemType Directory -Force -Path $windowsPath | Out-Null
 
-# Copy DLL
-$dllSource = ".\bin\Release\MaskMText.dll"
-if (Test-Path $dllSource) {
-    Write-Host "Copying DLL..."
+# Copy DLL - check multiple possible locations
+$dllSource = $null
+$possiblePaths = @(
+    ".\bin\x64\Release\MaskMText.dll",
+    ".\bin\Release\MaskMText.dll",
+    ".\bin\Release\net48\MaskMText.dll"
+)
+
+foreach ($path in $possiblePaths) {
+    if (Test-Path $path) {
+        $dllSource = $path
+        break
+    }
+}
+
+if ($dllSource) {
+    Write-Host "Copying DLL from: $dllSource"
     Copy-Item $dllSource -Destination $windowsPath -Force
 } else {
-    Write-Error "DLL not found at $dllSource. Build the project first!"
+    Write-Error "DLL not found in any expected location. Build the project first!"
+    Write-Host "Checked locations:" -ForegroundColor Yellow
+    foreach ($path in $possiblePaths) {
+        Write-Host "  - $path" -ForegroundColor Yellow
+    }
     exit 1
 }
 
