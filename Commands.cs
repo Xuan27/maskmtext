@@ -92,7 +92,7 @@ namespace MaskMText
 
                         // Apply settings
                         mtext.BackgroundScaleFactor = MaskSettings.MaskOffset;
-                        mtext.BackgroundColor = MaskSettings.MaskColor;
+                        mtext.BackgroundFillColor = MaskSettings.MaskColor;
 
                         maskedCount++;
                     }
@@ -103,9 +103,21 @@ namespace MaskMText
 
                         if (mleaderStyle != null && mleaderStyle.ContentType == ContentType.MTextContent)
                         {
-                            // Create a copy of the mleader style or modify directly
+                            // Enable text frame and apply mask settings to the MText content
                             mleader.EnableFrameText = true;
-                            mleader.TextBackgroundColor = MaskSettings.MaskColor;
+
+                            // Get the MText content and apply background mask
+                            MText leaderText = mleader.MText;
+                            if (leaderText != null)
+                            {
+                                leaderText.BackgroundFill = true;
+                                leaderText.UseBackgroundColor = true;
+                                leaderText.BackgroundScaleFactor = MaskSettings.MaskOffset;
+                                leaderText.BackgroundFillColor = MaskSettings.MaskColor;
+
+                                // Update the MLeader with modified MText
+                                mleader.MText = leaderText;
+                            }
 
                             maskedCount++;
                         }
